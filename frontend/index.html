@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ranger HQ</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="top-hud">
+      <div class="brand-lockup">
+        <div class="brand-mark">R</div>
+        <div>
+          <p class="eyebrow">Antheus Local Command</p>
+          <h1>Ranger HQ</h1>
+        </div>
+      </div>
+      <div class="hud-metrics">
+        <span class="hud-chip" id="systemMode">System</span>
+        <span class="hud-chip" id="openclawMode">OpenClaw</span>
+        <span class="hud-chip" id="dockerMode">Docker</span>
+        <span class="hud-chip" id="approvalMode">Approvals</span>
+        <button class="kill-button" id="triggerKill">Kill Switch</button>
+      </div>
+    </header>
+
+    <section class="kill-banner" id="killBanner" hidden>
+      <strong>SAFE MODE</strong>
+      <span id="killReason">Kill switch active.</span>
+      <button id="clearKill">Clear</button>
+    </section>
+
+    <main class="base-shell">
+      <section class="base-stage" aria-label="Ranger HQ base floor">
+        <div class="stage-header">
+          <div>
+            <p class="eyebrow">BaseHQ Environment Layer</p>
+            <h2>Agent Compound</h2>
+          </div>
+          <div class="stage-actions">
+            <button id="launchOpenClaw">Launch OpenClaw</button>
+            <button id="stopOpenClaw">Stop OpenClaw</button>
+          </div>
+        </div>
+
+        <div class="hallway-layer" aria-hidden="true">
+          <span class="hall hall-h top"></span>
+          <span class="hall hall-h mid"></span>
+          <span class="hall hall-h bottom"></span>
+          <span class="hall hall-v left"></span>
+          <span class="hall hall-v mid"></span>
+          <span class="hall hall-v right"></span>
+          <span class="junction j1"></span>
+          <span class="junction j2"></span>
+          <span class="junction j3"></span>
+          <span class="junction j4"></span>
+          <span class="corridor-agent transfer" title="Agent transfer: Research to Forge"></span>
+          <span class="corridor-agent wander" title="Downtime wander"></span>
+          <span class="corridor-agent security" title="Security detail patrol"></span>
+        </div>
+        <div class="module-grid" id="rooms"></div>
+        <div class="room-hover-hud" id="roomHoverHud" hidden>
+          <strong id="hoverTitle">Room</strong>
+          <span id="hoverInfo">Status</span>
+        </div>
+        <div class="zoom-room" id="zoomRoom" hidden>
+          <button class="zoom-close" id="zoomClose">Back to Base</button>
+          <div class="zoom-room-scene" id="zoomRoomScene"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="event-ticker">
+      <span class="ticker-label">Events</span>
+      <div id="events" class="ticker-feed"></div>
+    </footer>
+
+    <section class="utility-dock" hidden>
+      <form id="roomForm">
+        <input name="name">
+        <button>Create Room</button>
+      </form>
+      <form id="projectForm">
+        <input name="name">
+        <button>Create Project</button>
+      </form>
+      <form id="agentForm">
+        <input name="name">
+        <input name="role">
+        <button>Stage Agent</button>
+      </form>
+      <form id="ideaForm">
+        <textarea name="idea"></textarea>
+        <button>Draft</button>
+      </form>
+      <div id="projects"></div>
+      <div id="agents"></div>
+      <div id="approvals"></div>
+      <div id="openclawStatus"></div>
+    </section>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "agents": {
+    "defaults": {
+      "sandbox": {
+        "mode": "all",
+        "backend": "docker",
+        "scope": "agent",
+        "workspaceAccess": "none",
+        "docker": {
+          "network": "none",
+          "readOnlyRoot": true,
+          "capDrop": ["ALL"],
+          "pidsLimit": 256,
+          "memory": "1g",
+          "cpus": 1,
+          "securityOpt": ["no-new-privileges:true"],
+          "tmpfs": ["/tmp:rw,noexec,nosuid,size=64m"],
+          "mounts": []
+        }
+      },
+      "approvalPath": "tay-only",
+      "externalActions": "blocked",
+      "activation": "staged-only"
+    }
+  },
+  "blockedActions": [
+    "publish",
+    "spend",
+    "message",
+    "account_change",
+    "school_submission",
+    "external_write",
+    "agent_activation",
+    "tool_permission_change"
+  ],
+  "requiredFlow": ["draft", "stage", "review", "approve_or_reject_or_iterate", "execute"]
+}
+
